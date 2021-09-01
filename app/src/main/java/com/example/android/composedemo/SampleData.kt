@@ -1,5 +1,7 @@
 package com.example.android.composedemo
 
+import com.example.android.composedemo.examples.Message
+
 /**
  * Created by murodjon on 2021/08/30
  */
