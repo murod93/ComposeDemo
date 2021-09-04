@@ -1,5 +1,6 @@
 package com.example.android.composedemo.examples
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
@@ -49,5 +50,13 @@ fun ConstraintLayoutContent() {
 @Preview(showBackground = true)
 @Composable
 fun ConstraintLayoutContentPreview() {
+    ConstraintLayoutContent()
+}
+
+@ExperimentalComposeUiApi
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+@Composable
+fun ConstraintLayoutContentNightPreview()
+{
     ConstraintLayoutContent()
 }
