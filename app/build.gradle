@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.android.composedemo"
         minSdk 21
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -65,9 +65,7 @@ dependencies {
 
     // navigation using compose dependency
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha09"
-    implementation("androidx.navigation:navigation-compose:2.4.0-alpha09")
-
-
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha09"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

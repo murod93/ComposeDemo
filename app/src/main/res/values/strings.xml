@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">ComposeDemo</string>
+    <string name="app_name">Compose Demo</string>
+    
+    <string name="action_delete">Delete</string>
+    <string name="action_select">Select All</string>
+    <string name="action_deselect">Deselect</string>
+    <string name="action_share">Share</string>
+    
+    <string name="gallery_title">Gallery</string>
+    <string name="gallery_nav_item_home">Home</string>
+    <string name="gallery_nav_item_settings">Settings</string>
 </resources>
