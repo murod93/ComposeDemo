@@ -1,8 +1,10 @@
 package com.example.android.composedemo.ui.screen
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -21,7 +23,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.android.composedemo.R
+import com.example.android.composedemo.data.model.GalleryItem
 
+@ExperimentalFoundationApi
 @Composable
 fun GalleryScreen() {
     Scaffold(
@@ -43,7 +47,7 @@ fun GalleryScreen() {
             }
         }
     ) {
-        GalleryScreenBody()
+        GalleryScreenBody(listOf())
     }
 }
 
@@ -69,7 +73,7 @@ fun GalleryScreenBottomBar(
         mutableStateOf(homeKey)
     }
 
-    BottomAppBar(cutoutShape = shape, modifier = modifier) {
+    BottomAppBar(cutoutShape = shape, modifier = modifier, backgroundColor = Color.White) {
         BottomNavigation(backgroundColor = Color.White) {
             BottomNavigationItem(selected = activeItem.value == homeKey, onClick = {
                 onHomeClick.invoke()
@@ -133,8 +137,49 @@ private fun BottomNavItemLabel(modifier: Modifier = Modifier, text: String, acti
     )
 }
 
+@ExperimentalFoundationApi
 @Composable
-fun GalleryScreenBody() {
+fun GalleryScreenBody(items: List<GalleryItem>) {
+    GalleryList(modifier = Modifier, galleryItems = items, onItemClick = { /*TODO*/ }) {
+
+    }
+}
+
+@ExperimentalFoundationApi
+@Composable
+fun GalleryList(
+    modifier: Modifier,
+    galleryItems: List<GalleryItem>,
+    onItemClick: () -> Unit,
+    onItemLongClick: () -> Unit
+) {
+    if (galleryItems.isEmpty()) {
+        GalleryEmpty()
+    } else {
+        LazyVerticalGrid(cells = GridCells.Fixed(3), content = {
+            items(galleryItems) { galleryItem ->
+                GalleryItemView(
+                    modifier = Modifier,
+                    item = galleryItem,
+                    onItemClick = onItemClick, onItemLongClick = onItemLongClick
+                )
+            }
+        }, modifier = modifier)
+    }
+}
+
+@Composable
+fun GalleryEmpty() {
+
+}
+
+@Composable
+fun GalleryItemView(
+    modifier: Modifier,
+    item: GalleryItem,
+    onItemClick: () -> Unit,
+    onItemLongClick: () -> Unit
+) {
 
 }
 
@@ -150,6 +195,7 @@ fun FloatingActionButtonContent(shape: Shape, onPlusClick: () -> Unit) {
     }
 }
 
+@ExperimentalFoundationApi
 @Preview
 @Composable
 fun GalleryScreenPreview() {
