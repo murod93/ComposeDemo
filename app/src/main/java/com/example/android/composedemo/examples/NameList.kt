@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 /**
  * Created by murodjon on 2021/09/02
  */
-
 @Composable
 fun MyScreenContent(names: List<String> = listOf("Android", "There")) {
     val count = remember { mutableStateOf(0) }

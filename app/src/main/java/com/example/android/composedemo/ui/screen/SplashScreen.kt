@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
-import com.example.android.composedemo.MainScreen
 import com.example.android.composedemo.R
+import com.example.android.composedemo.ui.nav.GalleryNavigation
 import kotlinx.coroutines.delay
 
 @Composable
@@ -34,7 +34,7 @@ fun SplashScreen(navController: NavController) {
                 })
         )
         delay(1000L)
-        navController.navigate(MainScreen.Gallery.name)
+        navController.navigate(GalleryNavigation.gallery().destination)
     }
     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
         Image(

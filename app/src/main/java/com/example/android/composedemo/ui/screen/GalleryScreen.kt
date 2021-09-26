@@ -24,10 +24,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.android.composedemo.R
 import com.example.android.composedemo.data.model.GalleryItem
+import com.example.android.composedemo.ui.viewmodel.GalleryViewModel
 
 @ExperimentalFoundationApi
 @Composable
-fun GalleryScreen() {
+fun GalleryScreen(vm: GalleryViewModel) {
     Scaffold(
         topBar = {
             GalleryScreenTopBar()
@@ -199,5 +200,5 @@ fun FloatingActionButtonContent(shape: Shape, onPlusClick: () -> Unit) {
 @Preview
 @Composable
 fun GalleryScreenPreview() {
-    GalleryScreen()
+    GalleryScreen(GalleryViewModel())
 }
